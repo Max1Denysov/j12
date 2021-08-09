@@ -1,30 +1,20 @@
-class a{
-    int i,j;
-    void shovij(){
-        System.out.println("i,j = "+ i +"," + j);
+class param{
+    private int i;
+    private int j;
+
+    void set(int...y){
+        this.i = y[0];
+        this.j = y[1];
+
     }
-}
-class b extends a{
-    int k;
-    void shovk(){
-        System.out.println("k = "+ k);
-    }
-    void sum(){
-        System.out.println("i + j + k = " +(i +j+k));
+    String get(){
+        return j + "\n"+ i;
     }
 }
 public class neeeew{
     public static void main(String []args){
-        a myob = new a();
-        b mybb = new b();
-        myob.i = 15;
-        myob.j = 22;
-        myob.shovij();
-        mybb.i = 10;
-        mybb.j = 12;
-        mybb.k = 44;
-        mybb.shovij();
-        mybb.shovk();
-        mybb.sum();
+        param ob = new param();
+        ob.set(2,3);
+        System.out.println(ob.get());
     }
 }
