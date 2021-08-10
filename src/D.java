@@ -1,8 +1,18 @@
 public class D {
     public static void main (String []args){
-     B myb = new B(12,13,15);
-     myb.show();
-     myb.show("This is  K:");
+     A a = new A();
+     B b = new B();
+     c CC = new c();
+
+     A r;
+     r = a;
+     r.callme();
+
+     r = b;
+     r.callme();
+
+     r = CC;
+     r.callme();
     }
 }
 //Если метод подкласса и суперкласса имеют одинаковые имена и типы входных данных то метод суперласса
