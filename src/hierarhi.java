@@ -1,5 +1,5 @@
 class Box{
-    double width,height,depth;
+   private double width,height,depth;
     Box(double w, double h, double d){ // Constructor for Box
         this.width = w;
         this.height = h;
@@ -32,11 +32,12 @@ class Box{
 }
 
 class BoxProp extends  Box{
-    double weight;
+    public double weight;
 
-    BoxProp(BoxProp ob,double m){ // Clone
+    BoxProp(BoxProp ob){ // Clone
         super(ob);
-        this.weight = m;
+        weight = ob.weight;
+
 
 
     }
@@ -55,9 +56,31 @@ class BoxProp extends  Box{
 
 
 
-    BoxProp(double lan, double m){
+    BoxProp(double lan, double m){ // cube
         super(lan);
         this.weight = m;
+    }
+}
+class shipment extends BoxProp{
+    double costs;
+    shipment(shipment ob){  // clone
+        super(ob);
+        this.costs = ob.costs;
+    }
+
+    shipment(double w, double h, double d, double m, double c){ // box
+        super(w,h,d,m);
+        this.costs = c;
+    }
+
+    shipment(){  // empty
+        super();
+        this.costs = -1;
+    }
+
+    shipment(double lan, double m, double c){ // cube
+        super(lan,m);
+        this.costs = c;
     }
 }
 
@@ -68,9 +91,26 @@ public class hierarhi {
         BoxProp mybox = new BoxProp(10,20 , 30,60);
         BoxProp myCube = new BoxProp(50, 25);
         BoxProp myEmpty = new BoxProp();
-        BoxProp myClone = new BoxProp(mybox , 12);
+        BoxProp myClone = new BoxProp(mybox);
+
+        shipment mybox1 = new shipment(10,20 , 30,60,12);
+        shipment myCube1 = new shipment(50, 25,80);
+        shipment myEmpty1 = new shipment();
+        shipment myClone1= new shipment(mybox1);
+
         System.out.println("Mybox Volume: " + mybox.volume() + "\nMyCube Volume: "+ myCube.volume());
         System.out.println("MyEmpty Volume: " + myEmpty.volume() + "\nMyClone Volume: "+ myClone.volume());
+        System.out.println("Mybox Weight: " + mybox.weight + "\nMyCube Weight: "+ myCube.weight);
+        System.out.println("MyEmpty Weight: " + myEmpty.weight + "\nMyClone Weight: "+ myClone.weight);
+
+        System.out.println("Mybox1 Volume: " + mybox1.volume() + "\nMyCube1 Volume: "+ myCube1.volume());
+        System.out.println("MyEmpty1 Volume: " + myEmpty1.volume() + "\nMyClone1 Volume: "+ myClone1.volume());
+        System.out.println("Mybox1 Weight: " + mybox1.weight + "\nMyCube1 Weight: "+ myCube1.weight);
+        System.out.println("MyEmpty1 weight: " + myEmpty1.weight + "\nMyClone1 weight: "+ myClone1.weight);
+        System.out.println("Mybox1 costs: " + mybox1.costs + "\nMyCube1 costs: "+ myCube1.costs);
+        System.out.println("MyEmpty1 costs: " + myEmpty1.costs + "\nMyClone1 costs: "+ myClone1.costs);
+
+
 
 
     }
