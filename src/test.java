@@ -3,7 +3,6 @@ class exam{
         return str.endsWith(end);
     }
 }
-
 public class test {
     public static void main(String []args){
         exam mytest = new exam();
